@@ -1,5 +1,6 @@
 ### geoCrimeMap
 
+![CrimeMap](https://raw.githubusercontent.com/tarellel/geoCrimeMap/master/assets/img/f3ba5d602facdf469.png)
 [View in action](https://tarellel.github.io/geoCrimeMap)
 
 
