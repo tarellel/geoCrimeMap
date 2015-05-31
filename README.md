@@ -1,5 +1,7 @@
 ### geoCrimeMap
 
+[View in action](https://tarellel.github.io/geoCrimeMap)
+
 
 ### Requirements
 * sinatra `gem install sinatra`
