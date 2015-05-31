@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    title Farmington CrimeReport
+    meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'
+    script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'
+    script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'
+    script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js" type="text/javascript"
+    link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'
+    link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet'
+    link rel="stylesheet" type="text/css" href="/css/style.css"
+    link rel="stylesheet" type="text/css" href="/css/map.css"
+    /[if lt IE 9]
+      script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"
+  body
+    header
+      h1 Farmington CrimeMap
+      span A CrimeMap of Farmington, NM showing the latest crimes and where they happened at.
+
+    section.content
+      div#map
+
+    h1#chartTitle Crimes Committed
+    canvas#myChart
+
+    script src="/js/app.js"

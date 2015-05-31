@@ -1,0 +1,6 @@
+hidden/
+hidden/*
+
+.DS_Store
+*/.DS_Store
+Gemfile.lock
