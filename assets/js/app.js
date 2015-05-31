@@ -1,4 +1,4 @@
-var date = new Date();
+//var date = new Date();
 //var today = new Date(date.getTime() - date.getTimezoneOffset()*60*1000);
 //var dateString = today.toISOString().slice(0, 10);
 //var crimeFile = ("data/" + dateString + ".csv").toString();
@@ -6,11 +6,11 @@ var crimeFile = ("data/latest.csv").toString();
 
 // keeping count for all the types of crimes that recently occurred
 crimes = {
+  'alcohol': 0,
   'assault': 0,
   'breakins': 0,
   'disorder': 0,
   'drugs': 0,
-  'liquor': 0,
   'property': 0,
   'robbery': 0,
   'theft': 0,
@@ -27,50 +27,15 @@ function getCrime(type){
   crimes[type];
 }
 
-function setupChart(crimes){
-  var ctx = document.getElementById("myChart").getContext("2d");
-  var data = {
-    labels: ["Assaults", "Breakins","Drugs", "Liquor", "Thefts", "Robberies", "Disorder", "Property Damage","Etc."],
-    datasets: [
-        {
-            label: "Crimes Commited",
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: [crimes['assault'], crimes['breakins'], crimes['drugs'], crimes['liquor'], crimes['theft'], crimes['robbery'], crimes['disorder'], crimes['property'], crimes['etc']]
-        },
-    ]
-  };
-  var myBarChart = new Chart(ctx).Bar(data);
-  var i = 0;
-  for(i = 0; i < 9; i++){
-    if (i % 2 == 0){
-      // Blueish
-      //myBarChart.datasets[0].bars[i].fillColor = "#00BCD4";       //"#19D1FD";
-      myBarChart.datasets[0].bars[i].fillColor = "#39B5B9";
-      myBarChart.datasets[0].bars[i].strokeColor = "rgba(96, 125, 139, 0)";
-      //myBarChart.datasets[0].bars[i].highlightFill = "#607D8B";
-      myBarChart.datasets[0].bars[i].highlightFill = "#619CC4";
-      myBarChart.datasets[0].bars[i].highlightStroke = "rgba(220,220,220,0)";
-    }else{
-      // Lime Green
-      myBarChart.datasets[0].bars[i].fillColor = "#CDDC39";
-      myBarChart.datasets[0].bars[i].strokeColor = "rgba(96, 125, 139, .0)";
-      myBarChart.datasets[0].bars[i].highlightFill = "#619CC4";
-      myBarChart.datasets[0].bars[i].highlightStroke = "rgba(220,220,220,0)";
-    }
-  }
-
-  myBarChart.update();
-}
-
 
 // Provide your access token
 L.mapbox.accessToken = '<-- access_token -->';
 
 // Create a map in the div #map
-var map = L.mapbox.map('map', 'tarellel.eef55dd3')
+var map = L.mapbox.map('map', 'tarellel.eef55dd3',{
+                        attributionControl: false,
+                        infoControl: true
+                  })
                   .setView([36.73964, -108.20538], 14);
 
 omnivore.csv(crimeFile)
@@ -103,7 +68,7 @@ omnivore.csv(crimeFile)
         case "Liquor":
           icon = 'alcohol-shop';
           markerColor = "#00BCD4";
-          setCrime('liquor');
+          setCrime('alcohol');
           break;
         case "Property Crime":
           icon = 'hairdresser';
@@ -116,7 +81,6 @@ omnivore.csv(crimeFile)
           break;
         case "Theft":
           icon = 'shop';
-
           setCrime('theft');
           break;
         case 'Theft from Vehicle':
@@ -145,6 +109,6 @@ omnivore.csv(crimeFile)
         '<b>Desc:</b> ' + marker.toGeoJSON().properties.desc
       );
     });
-    setupChart(crimes);
+    setCrimeCounts(crimes);
   })
   .addTo(map);

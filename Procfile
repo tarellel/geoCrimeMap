@@ -1,1 +1,1 @@
-web: env ruby crime_app.rb -p 8000
+web: bundle exec rackup -p 8000

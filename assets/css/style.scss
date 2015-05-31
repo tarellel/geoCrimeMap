@@ -1,0 +1,84 @@
+body{
+  margin:0; padding:1em;
+  background: #F9F9F9;
+  color:#373F51;
+  font:16px/1.5 "PT Sans",Helvetica, Arial, sans-serif;
+}
+
+
+header{
+  padding:0.75em;
+  text-align: center;
+  h1{
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+  }
+  span{
+    color: #898989;
+    //color:#A9BCD0;
+  }
+}
+
+section.content{
+  padding:2%;
+  width:96%;
+}
+  .legend{
+    display: block;
+    margin:0 auto;
+    text-align: center;
+    position:relative;
+    width:85%;
+    border:1px solid #E8E8E8;
+    color:#373F51;
+    border-bottom:0;
+    font-size:85%;
+
+    .item{
+      margin:0 auto;
+      display: inline-block;
+      text-align: center;
+      padding:1em;
+      font-weight: bold;
+
+      b{
+        margin:0px auto;
+        display: block;
+        //background:#607D8B;
+
+        width:7px;
+        height:7px;
+
+        -moz-border-radius: 11px;
+	      -webkit-border-radius: 11px;
+	      border-radius: 11px;
+
+        /*
+        &.alcohol{   background: #00BCD4; }
+        &.assault{   background: #fc4353; }
+        &.breakins{  background: #fc4353; }
+        &.disorder{  background: #fc4353; }
+        &.drugs{     background: #03C9A9; }
+        &.property{  background: #F9B24F; }
+        &.theft{     background: #E61875; }
+        */
+      }
+
+      .item_count{
+        font-weight:400;
+      }
+    }
+  }
+
+
+
+h1#chartTitle{
+  text-align: center;
+}
+#myChart{
+  display: block;
+  margin:0 auto;
+  max-width: 600px;
+  height: 400px;
+}

@@ -4,3 +4,5 @@ hidden/*
 .DS_Store
 */.DS_Store
 Gemfile.lock
+.sass-cache
+.sass-cache/*
