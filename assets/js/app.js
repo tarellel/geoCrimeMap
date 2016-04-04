@@ -1,7 +1,3 @@
-//var date = new Date();
-//var today = new Date(date.getTime() - date.getTimezoneOffset()*60*1000);
-//var dateString = today.toISOString().slice(0, 10);
-//var crimeFile = ("data/" + dateString + ".csv").toString();
 var crimeFile = ("data/latest.csv").toString();
 
 // keeping count for all the types of crimes that recently occurred
@@ -17,7 +13,7 @@ crimes = {
   'etc': 0
 }
 
-
+// add 1 to the current crime type
 function setCrime (type) {
   crimes[type] += 1;
 }
@@ -26,7 +22,6 @@ function getCrime(type){
   console.log(crimes[type]);
   crimes[type];
 }
-
 
 // Provide your access token
 L.mapbox.accessToken = '<-- access_token -->';

@@ -1,0 +1,34 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+  TargetRubyVersion: 2.3
+
+# don't force UTF-8 encoding at top of tiles
+# used for Ruby versions 1.9 and lower
+Style/Encoding:
+  Enabled: false
+
+# Do not enfore '#!'.freeze frozen literals
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: false
+
+# Allow methods/functions to be longer
+Metrics/MethodLength:
+  Max: 20
+
+# Remote the need to have a _ in long numbers 12_345
+Style/NumericLiterals:
+  MinDigits: false
+
+# Only set this high because of some URL stings being excessively long
+Metrics/LineLength:
+  Max: 120
+
+Style/WhileUntilModifier:
+  MaxLineLength: 120
+
+# in a a loop allow `crimes.each do |crime|`
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false

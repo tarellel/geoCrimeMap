@@ -9,8 +9,6 @@ class CrimeApp < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :rack_env, :production
 
-
-
   register Sinatra::AssetPack
   assets {
     serve '/js',     from: 'assets/js'
@@ -19,11 +17,8 @@ class CrimeApp < Sinatra::Base
 
     # Serve up JS per request
     js :app, '/js/app.js', [
-      #'/js/*'
       '/js/app.js',
       '/js/count.js'
-      #'/js/vendor/**/*.js',
-      #'/js/lib/**/*.js'
     ]
 
     # Serve up CSS per request
@@ -43,13 +38,10 @@ class CrimeApp < Sinatra::Base
     set :slim, pretty: true
   end
 
-
   # sass: http://ricostacruz.com/sinatra-assetpack/
-
   get '/' do
     slim :index
   end
-
 
   # serve the latest generated csv file
   get '/latest' do
@@ -57,20 +49,16 @@ class CrimeApp < Sinatra::Base
     File.read('assets/data/latest.csv')
   end
 
-
-
-
   get '/csv/:format.csv' do
-
     # verify format of file is similar to YYYY-DD-MM
-    if (params[:format] =~ /^\d{4}\-\d{2|\-\d{2}$/)
-      file = params[:format] + ".csv"
+    if params[:format] =~ /^\d{4}\-\d{2|\-\d{2}$/
+      file = params[:format] + '.csv'
     else
       file = 'latest.csv'
     end
 
     filepath = "assets/data/#{file}"
-    if File.exists?(filepath)
+    if File.exist?(filepath)
       content_type 'application/csv'
       return File.open(filepath)
     else
