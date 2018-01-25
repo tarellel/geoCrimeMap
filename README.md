@@ -1,6 +1,6 @@
 ### geoCrimeMap
 
-**[View in action](http://sixmethods.com/geoCrimeMap/)**
+**[View in action](http://brandonhicks.me/geoCrimeMap/)**
 
 ![CrimeMap](https://raw.githubusercontent.com/tarellel/geoCrimeMap/master/assets/img/f3ba5d602facdf469.png)
 
